@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="description" content="A gallery of Precious Heart's amazing artwork." />
+        <link rel="stylesheet" href="styles.css">
+        <title>Gallery | Precious Hearts</title>
+        <link rel="icon" href="Images/kitty.ico">
+        <meta property="og:title" content="Gallery | Precious Hearts">
+        <meta property="og:description" content="A gallery of Precious Heart's amazing artwork.">
+        <meta property="og:image" content="Images/kitty.ico">
+        <meta property="og:type" content="website">
+    </head>
+    <body class="gallery-page">
+
+        <a href="index.html">
+            <header>
+                <img src="Images/heart1.png" alt="Prescious Hearts side heart" class="hearts">
+                <img src="Images/logo2.png" alt="Prescious Hearts Logo" id="main_logo">
+                <img src="Images/heart1.png" alt="Prescious Hearts side heart" class="hearts" id="heart-right">
+            </header>
+        </a>
+
+        <main class="gallery">
+            <div class="gallery-item vertical" style="grid-area: box-1"><img src="Images/Website-Portfolio/Vertical/aurora.jpg" alt="Aurora"></div>
+            <div class="gallery-item vertical" style="grid-area: box-2"><img src="Images/Website-Portfolio/Vertical/affection.jpg" alt="Affection"></div>
+            <div class="gallery-item vertical" style="grid-area: box-3"><img src="Images/Website-Portfolio/Vertical/celestial-boy.jpg" alt="Celestial Boy"></div>
+            <div class="gallery-item horizontal" style="grid-area: box-4"><img src="Images/Website-Portfolio/Horizontal/dead-end.jpg" alt="Dead End" loading="lazy"></div>
+            <div class="gallery-item horizontal" style="grid-area: box-5"><img src="Images/Website-Portfolio/Horizontal/determination.jpg" alt="Determination" loading="lazy"></div>
+            <div class="gallery-item vertical" style="grid-area: box-6"><img src="Images/Website-Portfolio/Vertical/cupids-tricks.jpg" alt="Cupids Tricks" loading="lazy"></div>
+            <div class="gallery-item vertical" style="grid-area: box-7"><img src="Images/Website-Portfolio/Vertical/dolly-baby.jpg" alt="Dolly Baby" loading="lazy"></div>
+            <div class="gallery-item vertical" style="grid-area: box-8"><img src="Images/Website-Portfolio/Vertical/fully-auto-kisses.jpg" alt="Fully Auto Kisses" loading="lazy"></div>
+            <div class="gallery-item vertical" style="grid-area: box-9"><img src="Images/Website-Portfolio/Vertical/fuzzyheaded-angel.jpg" alt="Fuzzyheaded Angel" loading="lazy"></div>
+            <div class="gallery-item vertical" style="grid-area: box-10"><img src="Images/Website-Portfolio/Vertical/hopeless-devotion.jpg" alt="Hopeless Devotion" loading="lazy"></div>
+            <div class="gallery-item vertical" style="grid-area: box-11"><img src="Images/Website-Portfolio/Vertical/little-prince.jpg" alt="Little Prince" loading="lazy"></div>
+            <div class="gallery-item horizontal" style="grid-area: box-12"><img src="Images/Website-Portfolio/Horizontal/my-best-friend.jpg" alt="My Best Friend" loading="lazy"></div>
+            <div class="gallery-item horizontal" style="grid-area: box-13"><img src="Images/Website-Portfolio/Horizontal/lucky.jpg" alt="Lucky" loading="lazy"></div>
+            <div class="gallery-item vertical" style="grid-area: box-14"><img src="Images/Website-Portfolio/Vertical/music-box-boy.jpg" alt="Music Box Boy" loading="lazy"></div>
+            <div class="gallery-item horizontal" style="grid-area: box-15"><img src="Images/Website-Portfolio/Horizontal/lovely-world.jpg" alt="Lovely World" loading="lazy"></div>
+            <div class="gallery-item vertical" style="grid-area: box-16"><img src="Images/Website-Portfolio/Vertical/shame.jpg" alt="Shame" loading="lazy"></div>
+            <div class="gallery-item vertical" style="grid-area: box-17"><img src="Images/Website-Portfolio/Vertical/symbols-of-my-love.jpg" alt="Symbols of My Love" loading="lazy"></div>
+            <div class="gallery-item vertical" style="grid-area: box-18"><img src="Images/Website-Portfolio/Vertical/uly.jpg" alt="Uly" loading="lazy"></div>
+            <div class="gallery-item vertical" style="grid-area: box-19"><img src="Images/Website-Portfolio/Vertical/with-me.jpg" alt="With Me" loading="lazy"></div>
+            <div class="gallery-item horizontal" style="grid-area: box-20"><img src="Images/Website-Portfolio/Horizontal/carousel-pony.jpg" alt="Carousel Pony" loading="lazy"></div>
+        </main>
+
+        <div id="lightbox" class="lightbox">
+            <span class="lightbox-close">&times;</span>
+            <img class="lightbox-img" src="" alt="">
+        </div>
+
+        <script>
+            const galleryImages = document.querySelectorAll('.gallery-item img');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = lightbox.querySelector('.lightbox-img');
+            const closeBtn = lightbox.querySelector('.lightbox-close');
+
+            galleryImages.forEach(img => {
+                img.addEventListener('click', () => {
+                    lightboxImg.src = img.src;
+                    lightboxImg.alt = img.alt;
+                    lightbox.classList.add('active');
+                });
+            });
+
+            function closeLightbox() {
+                lightbox.classList.remove('active');
+            }
+
+            closeBtn.addEventListener('click', closeLightbox);
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) closeLightbox();
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeLightbox();
+            });
+        </script>
+        
+    </body>

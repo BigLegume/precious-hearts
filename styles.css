@@ -1,0 +1,362 @@
+@font-face{
+    font-family: 'Heartless';
+    src: url("Fonts/Heartless.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.home-page{
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+/* DEFAULT HEADER (landing page)*/
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+header img {
+  height: auto;
+  min-width: 0;
+  margin: 0;
+}
+
+.hearts { width: 160px; }        /* base size */
+#main_logo { width: 290px; }     /* base size */
+
+#heart-right { transform: scaleX(-1); }
+
+.home-page > a { display: block; }  
+
+/*ABOUT PAGE HEADER (overrides only)*/
+.about-header {
+  justify-content: flex-end;
+  padding-top: 2rem;
+  padding-right: 9.5rem;
+}
+
+.about-header .hearts { width: 8rem; }
+.about-header #main_logo { width: 13rem; }
+
+@media (max-width: 768px) {
+  .about-header {
+    min-width: auto !important;
+    justify-content: center;   /*centers the box horizontally*/
+    padding: 1rem;
+  }
+}
+
+
+.gallery{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 2em;
+    padding: 20px;
+    grid-auto-rows: min-content;  
+    grid-template-areas:
+    "box-1 box-1 box-2 box-2 box-3 box-3"
+    "box-4 box-4 box-4 box-5 box-5 box-5"
+    "box-6 box-6 box-7 box-7 box-8 box-8"
+    "box-9 box-9 box-10 box-10 box-11 box-11"
+    "box-12 box-12 box-12 box-13 box-13 box-13"
+    "box-15 box-15 box-15 box-15 box-14 box-14"
+    "box-16 box-16 box-17 box-17 box-18 box-18"
+    "box-19 box-19 box-20 box-20 box-20 box-20";
+}
+
+.gallery-item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+}
+
+
+/*GALLERY: MOBILE*/
+@media (max-width: 1024px){
+    .gallery{
+        grid-template-columns: 1fr;
+        grid-template-areas: none;
+        gap: 2em;
+        padding: 10px;
+        margin: 30px;
+    }
+
+    .gallery-item{
+        grid-area: auto !important; /* clears row + column placement from base rules */
+    }
+
+    #gallery-fig{
+        margin-top: 0;
+    }
+
+    .grid-container{
+        grid-template-columns: 1fr;
+    }
+
+
+    html, body{
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+}
+
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox-img {
+    max-width: 90%;
+    max-height: 90vh;
+    object-fit: contain;
+    cursor: default;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 2.5em;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.gallery-item img {
+    cursor: pointer; /* signals the image is clickable */
+}
+
+body{
+    background-image: url(Images/backround.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.about-body{
+    background-image: url(Images/aboutme.png);
+    background-size: cover;
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.about-body main{
+    flex: 1;
+    display: flex;
+    align-items: center;        /* vertical middle */
+    justify-content: flex-end;  /* right side */
+    padding: 1rem 11%;           /* right padding keeps it off the edge */
+}
+
+.about-text {
+  font-family: monospace;
+  max-width: 450px;
+  padding: 1.5rem;
+  font-size: 1.3em;
+  color: rgb(227, 228, 234);
+  background-color: black;
+  line-height: 1.8;
+  text-align: left;   
+}
+
+.services{
+  color: red;
+}
+
+.about-text p {
+  margin: 0 0 0.75rem;
+}
+
+.about-text p:first-child {
+  margin-bottom: 2rem;        /* extra gap before "REACH OUT TO ME FOR" */
+}
+
+@media (max-width: 768px) {
+  .about-body main {
+    justify-content: center;  /* centers the box horizontally */
+    padding: 1rem;
+  }
+}
+
+h1{
+    margin-top: 0px;
+    font-family: 'Heartless', sans-serif;
+    color: red;
+    font-size: 3em;
+    background-color: black;
+}
+
+/*This is for landing page icons*/
+.grid-container{
+    height: 300px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0px;
+    text-align: center;
+}
+
+.figure{
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 270px;
+    margin-bottom: 0px;
+}
+
+#gallery-fig{
+    margin-top: 150px;
+}
+
+a{
+    text-decoration: none;
+    color: red;
+}
+
+/* ========== CONTACT PAGE ========== */
+.contact-body {
+  background-color: black;
+  background-image: none;
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-body > a {
+  display: block; 
+}
+
+.contact-body main {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  padding: 1rem 5%;
+  width: 100%;
+  max-width: 1000px;
+  box-sizing: border-box;
+  margin: 0 auto
+}
+
+.bear-container {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bear-jump {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+}
+
+.contact-form {
+  box-sizing: border-box;
+  flex: 1;
+  min-width: 0;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding-right: 30px;
+}
+
+.contact-form h1 { 
+    margin: 0 0 0.5rem;
+    text-align: center ;
+    align-self: stretch; 
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.75rem;
+  font: inherit;
+}
+
+.contact-form textarea { 
+  resize: vertical; 
+}
+
+.contact-form button {
+  padding: 0.75rem;
+  font: inherit;
+  cursor: pointer;
+}
+
+.contact-p{
+    display:block;
+    max-width: 450px;
+    padding: 1.5rem;
+    font-size: 1.0em;
+    color: white;
+    background-color: black;
+    text-align: left;
+}
+
+.grid-container a:hover h1 {
+    color: rgb(210, 183, 27);
+    transition: color 0.2s ease;
+}
+
+@media (max-width: 768px) {
+  .contact-body main {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+
+
+
+@media (max-width: 700px){
+    .grid-container{
+      grid-template-columns: 1fr;
+    }
+
+    #gallery-fig{
+        margin-top: 0;
+    }
+
+    html, body{
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+  }
